@@ -19,6 +19,27 @@ div {
 	width: 48%;
 	float: left
 }
+#about,#totals {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding: 3px;
+	background: #CCC;
+	border-radius: 8px;
+	padding-right: 8px;
+	padding-left: 8px;
+}
+#totals {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 300px;
+	padding: 3px;
+	background: #CCC;
+	border-radius: 8px;
+	padding-right: 8px;
+	padding-left: 8px;
+}
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="./jquery.masonry.min.js"></script>
@@ -41,12 +62,16 @@ function buildWords(parent, wordarr) {
 function tdata(data) {
 	var west = data.west;
 	var east = data.east;
+
+	$("#totals").html("tweet totals! west: "+data.westtotal+" | east: "+data.easttotal);
 	
 	buildWords("west", west);
 	buildWords("east", east);
 	
 	$("#east").masonry('reload');
 	$("#west").masonry('reload');
+	
+
 
 }
 
@@ -75,8 +100,13 @@ $(document).ready(function() {
 <body>
 
 <div id="wrapper">
-	<div id="west"></div>
+	<div id="west"><h2>Loading data...</h2><p>This should disappear very soon, unless the server isn't running</p></div>
 	<div id="east"></div>
+	<div id="about">
+		<a href="https://github.com/ivong/TwitterWords">code on github</a>
+		<a href="http://ivarvong.com">made by ivar</a>
+	</div>
+	<div id="totals"></div>
 </div>
 
 </body>
