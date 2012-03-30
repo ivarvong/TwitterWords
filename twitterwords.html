@@ -1,0 +1,83 @@
+<html>
+<head>
+<style type="text/css">
+div {
+	margin: 0;
+	padding: 0;
+	border: 0px solid #CCC;
+	border-radius: 20px;
+	padding-left: 6px;
+	padding-right: 6px;
+	font-family: "Adelle";
+	font-weight: 300;
+}
+#west {
+	width: 48%;
+	float: left;
+}
+#east {
+	width: 48%;
+	float: left
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./jquery.masonry.min.js"></script>
+<script type="text/javascript" src="http://use.typekit.com/gyg7lht.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script>
+
+function buildWords(parent, wordarr) {
+	$("#"+parent).html("");
+	
+	for (var i in wordarr) {
+		var word = wordarr[i][0];
+		var size = wordarr[i][1];
+		var v = $("<div/>").html(word).css("font-size", size).addClass(parent).attr("id",parent+"-"+word).css("margin","10px");
+		$("#"+parent).append(v);
+	}
+	
+}
+
+function tdata(data) {
+	var west = data.west;
+	var east = data.east;
+	
+	buildWords("west", west);
+	buildWords("east", east);
+	
+	$("#east").masonry('reload');
+	$("#west").masonry('reload');
+
+}
+
+$(document).ready(function() {
+	
+	setInterval(function() {
+		$.ajax({
+			url: "http://localhost:1337/",
+			dataType: "script",
+			callback: "tdata"
+		});
+	}, 500);
+
+	$('#west').masonry({
+ 		itemSelector: '.west',
+ 		columnWidth: 50
+	});	
+	$('#east').masonry({
+ 		itemSelector: '.east',
+ 		columnWidth: 50
+	});
+
+});
+</script>
+</head>
+<body>
+
+<div id="wrapper">
+	<div id="west"></div>
+	<div id="east"></div>
+</div>
+
+</body>
+</html>
