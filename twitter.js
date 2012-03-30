@@ -76,7 +76,11 @@ ignorelist = [ '',
   'some',
   'fuck',
   'w',
-  '2'];
+  '2',
+  'he',
+  'job',
+  'jobs',
+  'ca'];
 
 function freqsort(a,b) {
 	if (a[1] < b[1]) return 1;
@@ -114,7 +118,7 @@ function buildSummary(dict) {
 	for (var i in top50) {
 		var r = top50[i];
 		top50_norm.push([ r[0], Math.ceil(80*r[1]/maxfreq) ]);
-		//top50_norm.push([ r[0], Math.ceil(10*r[1]) ]);
+		//top50_norm.push([ r[0], Math.ceil(5*r[1]) ]);
 	}
 	return top50_norm;
 
@@ -124,24 +128,30 @@ function incrList(wordlist, destdict) {
 	for (var i in wordlist) {
 		var word = wordlist[i];
 		if (ignorelist.indexOf(word) < 0) { // true if word not in ignore wordlist... so let's count it
-			incr(destdict, word);		
+			incr(destdict,word);  //incr(destdict, word.text);// hashtag list needs .text to get to the word
 		}
 	}
 }
 
 t.stream('statuses/filter', {'locations':'-126.210937,28.690588,-62.753906,46.860191'}, function(stream) {
      stream.on('data', function (data) {
-
+     	if (data.entities.hashtags.length > 0) {
+			console.log(data.entities.hashtags, data.text);
+		}
+		
 		try { 
 			var geo = data.geo.coordinates; //if there aren't coordantes, this throws an error. try/catch is not a nice way to do this, sorry.
 		
+
 			var t = data.text;
 			t = t.toLowerCase();
 			t = t.replace(/[^a-z0-9\s]/g,''); //remove anything that's not a letter
 			var wordlist = t.split(" ");
+
+			/*var wordlist = data.entities.hashtags;*/
 		
 			if (geo[1] <= -99) { // less than -99 means west side of the country
-				//console.log("<<<<         " + t);
+				console.log("<<<<         " + t);
 				incrList(wordlist, westdict);
 				westtotal += 1;
 	
@@ -156,6 +166,18 @@ t.stream('statuses/filter', {'locations':'-126.210937,28.690588,-62.753906,46.86
 			// no coordinates, do nothing
 			//console.log("(no geo)");
 		}
+	});
+	stream.on('end', function (response) {
+		// Handle a disconnection
+		console.log("end!");
+	});
+	stream.on('destroy', function (response) {
+	// Handle a 'silent' disconnection from Twitter, no end/error event fired
+		console.log("destroy!");
+	});
+	stream.on('error', function (response) {
+	// Handle a 'silent' disconnection from Twitter, no end/error event fired
+		console.log("error", repsonse);
 	});
 });
 
@@ -174,16 +196,16 @@ setInterval(function() {
 	eastdict = {};	
 	westtotal = 0;
 	easttotal = 0;
-	console.log("RESET!");
-}, 1000*60*2); // empty the database every two minutes
+	console.log(new Date() +"RESET!");
+}, 1000*60*15); // empty the database every 15 minutes
 
 
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/javascript'});
   res.end("tdata(" + JSON.stringify({west: westtop50_norm, 
-  									 east: easttop50_norm,
-  									 westtotal: westtotal,
-  									 easttotal: easttotal}) + ");");
+									 east: easttop50_norm,
+									 westtotal: westtotal,
+									 easttotal: easttotal}) + ");");
 }).listen(1337, '127.0.0.1');
 
 console.log('Server running at http://127.0.0.1:1337/');
