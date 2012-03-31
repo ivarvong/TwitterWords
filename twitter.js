@@ -136,7 +136,7 @@ function incrList(wordlist, destdict) {
 t.stream('statuses/filter', {'locations':'-126.210937,28.690588,-62.753906,46.860191'}, function(stream) {
      stream.on('data', function (data) {
      	if (data.entities.hashtags.length > 0) {
-			console.log(data.entities.hashtags, data.text);
+			//console.log(data.entities.hashtags, data.text);
 		}
 		
 		try { 
