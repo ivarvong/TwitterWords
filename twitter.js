@@ -1,4 +1,4 @@
-var twitter = require('./ntwitter')
+var twitter = require('ntwitter')
   , http = require('http')
   , credentials = require('./credentials.js');
 
@@ -151,7 +151,7 @@ t.stream('statuses/filter', {'locations':'-126.210937,28.690588,-62.753906,46.86
 			/*var wordlist = data.entities.hashtags;*/
 		
 			if (geo[1] <= -99) { // less than -99 means west side of the country
-				console.log("<<<<         " + t);
+				//console.log("<<<<         " + t);
 				incrList(wordlist, westdict);
 				westtotal += 1;
 	
@@ -175,12 +175,11 @@ t.stream('statuses/filter', {'locations':'-126.210937,28.690588,-62.753906,46.86
 	// Handle a 'silent' disconnection from Twitter, no end/error event fired
 		console.log("destroy!");
 	});
-	stream.on('error', function (response) {
+	stream.on('error', function (response,r, s) {
 	// Handle a 'silent' disconnection from Twitter, no end/error event fired
-		console.log("error", repsonse);
+		console.log("error", JSON.stringify(response), r, s);
 	});
 });
-
 
 
 setInterval(function() {
@@ -206,6 +205,6 @@ http.createServer(function (req, res) {
 									 east: easttop50_norm,
 									 westtotal: westtotal,
 									 easttotal: easttotal}) + ");");
-}).listen(1337, '127.0.0.1');
+}).listen(9000);
 
-console.log('Server running at http://127.0.0.1:1337/');
+console.log('Server running at :9000/');
