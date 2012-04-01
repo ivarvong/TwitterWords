@@ -111,6 +111,8 @@ app.get('/recent/:minutes?', function(req, res){
 
 app.get('/mapreduce/:targetfield?/:minutes?', function(req, res) {
 
+	var startTime = new Date();
+
     var targetfield = "hashtags";
     if (req.params.targetfield != undefined) {     
         targetfield = sanitize(req.params['targetfield'].split(" ")[0]).xss(); //overkill?
@@ -136,9 +138,11 @@ app.get('/mapreduce/:targetfield?/:minutes?', function(req, res) {
                 var targetObject = this[MRtargetField];
             }
             
-            targetObject.forEach(function(tag) {
-                emit(tag , {count: 1}); //call emit once per word/hashtag/url/whatever
-            });
+            if (typeof targetObject == 'object') {
+	            targetObject.forEach(function(tag) {
+    	            emit(tag , {count: 1}); //call emit once per word/hashtag/url/whatever
+        	    });
+			}
         };
         
         var reducefunc = function(key, values) {
@@ -164,11 +168,12 @@ app.get('/mapreduce/:targetfield?/:minutes?', function(req, res) {
                                                                                                     arrayResults.push([pair['_id'], pair.value.count]);
                                                                                                 });
                                                                                                 res.send("tdata("+JSON.stringify(arrayResults)+")");
-                                                                                                console.log(arrayResults);
+                                                                                                var elapsedTime = (new Date() - startTime)/1000;
+                                                                                                console.log(arrayResults, "in", elapsedTime, "seconds");
                                                                                          });    
                                                                     });
     } catch (e) {
-        res.send("I think you made a mistake. Does this help?   " +JSON.stringify(e));
+        res.send("Uh oh! " +JSON.stringify(e)); //passing an invalid 
     }
 
 });
