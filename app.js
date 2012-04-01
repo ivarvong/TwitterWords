@@ -112,13 +112,12 @@ app.get('/recent/:minutes?', function(req, res){
 app.get('/mapreduce/:targetfield?/:minutes?', function(req, res) {
 
     var targetfield = "hashtags";
-    if (req.params.targetfield != undefined) {
-        
+    if (req.params.targetfield != undefined) {     
         targetfield = sanitize(req.params['targetfield'].split(" ")[0]).xss(); //overkill?
     }
     
     var minDelay = 10;
-    if (req.params.minutes) {
+    if (req.params.minutes != undefined) {
         minDelay = parseInt(req.params.minutes);
     }   
     var currentDate = new Date();
