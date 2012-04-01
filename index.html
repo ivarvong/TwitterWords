@@ -12,7 +12,7 @@ div {
 	font-weight: 300;
 }
 #west {
-	width: 48%;
+	width: 90%;
 	float: left;
 }
 #east {
@@ -60,7 +60,7 @@ function buildWords(parent, wordarr) {
 }
 
 function tdata(data) {
-	var west = data.west;
+	/*var west = data.west;
 	var east = data.east;
 
 	$("#totals").html("tweet totals! west: "+data.westtotal+" | east: "+data.easttotal);
@@ -68,22 +68,25 @@ function tdata(data) {
 	buildWords("west", west);
 	buildWords("east", east);
 	
-	$("#east").masonry('reload');
+	*/
+	buildWords("west", data);
+	//$("#east").masonry('reload');
 	$("#west").masonry('reload');
 	
-
-
 }
 
 $(document).ready(function() {
 	
+	var freqtarget = "textlist";
+	var freqtime = "3"
+	
 	setInterval(function() {
 		$.ajax({
-			url: "http://www.ivarvong.com:9000/",
+			url: "http://localhost:3000/mapreduce/"+freqtarget+"/"+freqtime,
 			dataType: "script",
 			callback: "tdata"
 		});
-	}, 500);
+	}, 1500);
 
 	$('#west').masonry({
  		itemSelector: '.west',
@@ -106,7 +109,9 @@ $(document).ready(function() {
 		<a href="https://github.com/ivong/TwitterWords">code on github</a>
 		<a href="http://ivarvong.com">made by ivar</a>
 	</div>
-	<div id="totals"></div>
+	<div id="config">
+	
+	</div>
 </div>
 
 <script type="text/javascript">

@@ -13,6 +13,17 @@ var express = require('express')
 
 var db = mongoskin.db('localhost:27017/t1?auto_reconnect=true');
 
+setInterval(function() {
+	var currentDate = new Date();
+    var thresholdDate = new Date(currentDate-1000*60*20); //remove anything older than 20 min ago
+    db.collection('tweets1').find().count(function(err, results) {
+    	console.log("pre prune:", results);
+    });
+    
+    db.collection('tweets1').remove({created: {$lte: thresholdDate}});
+    
+}, 1000*60);
+
 var t = new twitter({
     consumer_key: credentials.consumer_key,
     consumer_secret: credentials.consumer_secret,
@@ -20,11 +31,76 @@ var t = new twitter({
     access_token_secret: credentials.access_token_secret
 });
 
-var westUS = '-125.112305,32.731841,-99.000,49.325122';
+ignorelist = [ '',
+  'i',
+  'the',
+  'to',
+  'you',
+  'a',
+  'my',
+  'me',
+  'im',
+  'and',
+  'it',
+  'is',
+  'in',
+  'that',
+  'for',
+  'on',
+  'of',
+  'at',
+  'so',
+  'just',
+  'be',
+  'this',
+  'with',
+  'up',
+  'have',
+  'dont',
+  'but',
+  'your',
+  'was',
+  'get',
+  'what',
+  'all',
+  'do',
+  'its',
+  'no',
+  'if',
+  'u',
+  'not',
+  'when',
+  'know',
+  'out',
+  'we',
+  'are',
+  'they',
+  'about',
+  'can',
+  'rt',
+  'lt',
+  'or',
+  'thats',
+  'lol', 
+  'tweetmyjobs',
+  'like',
+  'some',
+  'w',
+  '2',
+  'he',
+  'job',
+  'jobs',
+  'ca',
+  '@',
+  '&',
+  '(@'];
+
+var allUS =  '-126.210937,28.690588,-62.753906,46.860191';
+var westUS = '-125.112305,32.731841,-99.000000,49.325122';
 var westcoast = '-125.112305,32.731841,-116.499023,49.325122';
 var oregon = '-124.892578,42.032974,-121.135254,45.9053';
 
-t.stream('statuses/filter', {'locations': westUS},
+t.stream('statuses/filter', {'locations': allUS},
     function(stream) {
         stream.on('data', function (data) {
         //console.log(data);
@@ -53,7 +129,18 @@ t.stream('statuses/filter', {'locations': westUS},
                 location_db = data.location;
             }
             
+            var textlist = [];
+            var text = data.text.toLowerCase();
+            text = text.replace(/[^a-z0-9\s]/g,''); //remove anything that's not a letter
+			text = text.split(" ");
+			text.forEach(function(word) {
+				if (ignorelist.indexOf(word) < 0) {
+					textlist.push(word);
+				}
+			});
+            
             var d = {"text": data.text,
+            		 "textlist": textlist,
                      "placename": data.place.full_name,
                      "screenname": data.user.screen_name,
                      "userid": data.user.id_str,
@@ -62,7 +149,7 @@ t.stream('statuses/filter', {'locations': westUS},
                      "coordinates": coordinates_db,
                      "hashtags": hashtags_db,
                      "urls": url_db,
-                     "usermentions": data.entities.user_mentions,
+                     "mentions": data.entities.user_mentions,
                      "name": data.user.name,
                      "id": data.id,
                       "statuses_count": data.user.statuses_count,
@@ -88,7 +175,13 @@ var app = module.exports = express.createServer();
 // Routes
 
 app.get('/', function(req, res) {
-  res.render('index', { title: 'Express' })
+  res.render('index')
+});
+
+app.get('/prune', function(req, res) {
+ 	var currentDate = new Date();
+    var thresholdDate = new Date(currentDate-1000*60*30); //remove anything older than 30 min ago
+    db.collection('tweets1').remove({created: {$lte: thresholdDate}});
 });
 
 app.get('/recent/:minutes?', function(req, res){
@@ -100,7 +193,7 @@ app.get('/recent/:minutes?', function(req, res){
 
     
     var currentDate = new Date();
-    var thresholdDate = new Date(currentDate-1000*60*minDelay)
+    var thresholdDate = new Date(currentDate-1000*60*minDelay);
     
     db.collection('tweets1').find({created: {$gte: thresholdDate}}).toArray(function(err, results) {
         console.log(results.length, "in", minDelay);
@@ -110,7 +203,7 @@ app.get('/recent/:minutes?', function(req, res){
 });
 
 app.get('/mapreduce/:targetfield?/:minutes?', function(req, res) {
-
+	console.log("GET /mapreduce", req.params);
 	var startTime = new Date();
 
     var targetfield = "hashtags";
@@ -140,8 +233,10 @@ app.get('/mapreduce/:targetfield?/:minutes?', function(req, res) {
             
             if (typeof targetObject == 'object') {
 	            targetObject.forEach(function(tag) {
-    	            emit(tag , {count: 1}); //call emit once per word/hashtag/url/whatever
-        	    });
+	            	//if (ignorelist.indexOf(tag.toLowerCase()) < 0) {  //WOW! it's almost twice as fast to NOT do this check. leaving it commented out...
+	    	            emit(tag , {count: 1}); //call emit once per word/hashtag/url/whatever
+    				//}
+    			});
 			}
         };
         
@@ -156,12 +251,12 @@ app.get('/mapreduce/:targetfield?/:minutes?', function(req, res) {
 
 
         db.collection('tweets1').mapReduce(mapfunc, reducefunc, {query: {created: {$gte: thresholdDate}}, 
-                                                                 scope: {MRtargetField: targetfield}, 
+                                                                 scope: {MRtargetField: targetfield, ignorelist: ignorelist}, 
                                                                    out: {replace:'tempCollection'}
                                                                 }, function(err, outputcollection) {
                                                                         outputcollection.find({"value.count": {$gt: 1}}).
                                                                                          sort({"value.count": -1}).
-                                                                                         limit(75).
+                                                                                         limit(120).
                                                                                          toArray(function(err, results) {
                                                                                                 var arrayResults = []
                                                                                                 results.forEach(function(pair) {
@@ -169,13 +264,25 @@ app.get('/mapreduce/:targetfield?/:minutes?', function(req, res) {
                                                                                                 });
                                                                                                 res.send("tdata("+JSON.stringify(arrayResults)+")");
                                                                                                 var elapsedTime = (new Date() - startTime)/1000;
-                                                                                                console.log(arrayResults, "in", elapsedTime, "seconds");
+                                                                                                console.log("mapreduce in "+elapsedTime +" seconds");
                                                                                          });    
                                                                     });
     } catch (e) {
         res.send("Uh oh! " +JSON.stringify(e)); //passing an invalid 
     }
 
+});
+
+app.get('/search/:searchWord?', function(req, res) {
+	console.log("GET /search", req.params);
+	db.collection('tweets1').find({textlist: req.params.searchWord}, {screenname: 1, text: 1, created: 1}).sort({created: -1}).limit(25).toArray(function(err, results) {
+		//console.log(results);
+		var arrayResults = []
+		results.forEach(function(data) {
+			arrayResults.push([ data['screenname'], data['text'], data['created']]);
+		});
+		res.send("tdata("+JSON.stringify(arrayResults)+")");
+	});
 });
 
 // ***********************
