@@ -15,7 +15,7 @@ var db = mongoskin.db('localhost:27017/t1?auto_reconnect=true');
 
 setInterval(function() {
 	var currentDate = new Date();
-    var thresholdDate = new Date(currentDate-1000*60*20); //remove anything older than 20 min ago
+    var thresholdDate = new Date(currentDate-1000*60*10); //remove anything older than 10 min ago
     db.collection('tweets1').find().count(function(err, results) {
     	console.log("pre prune:", results);
     });

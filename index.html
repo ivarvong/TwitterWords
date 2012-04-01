@@ -11,34 +11,10 @@ div {
 	font-family: "Adelle";
 	font-weight: 300;
 }
-#west {
-	width: 90%;
-	float: left;
-}
-#east {
-	width: 48%;
-	float: left
-}
-#about,#totals {
-	position: fixed;
-	bottom: 0;
-	right: 0;
-	padding: 3px;
-	background: #CCC;
-	border-radius: 8px;
-	padding-right: 8px;
-	padding-left: 8px;
-}
-#totals {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 300px;
-	padding: 3px;
-	background: #CCC;
-	border-radius: 8px;
-	padding-right: 8px;
-	padding-left: 8px;
+
+#header {
+	text-align: center;
+	
 }
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -47,54 +23,56 @@ div {
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <script>
 
+	
+	var config = {target: "textlist", 
+				freq: "3",
+				scale: "1"};
+
 function buildWords(parent, wordarr) {
 	$("#"+parent).html("");
 	
 	for (var i in wordarr) {
 		var word = wordarr[i][0];
 		var size = wordarr[i][1];
-		var v = $("<div/>").html(word).css("font-size", size).addClass(parent).attr("id",parent+"-"+word).css("margin","10px");
+		var v = $("<div/>").html(word).css("font-size", parseFloat(config.scale)*size).addClass(parent).attr("id",parent+"-"+word).css("margin","10px");
 		$("#"+parent).append(v);
 	}
 	
 }
 
 function tdata(data) {
-	/*var west = data.west;
-	var east = data.east;
 
-	$("#totals").html("tweet totals! west: "+data.westtotal+" | east: "+data.easttotal);
-	
-	buildWords("west", west);
-	buildWords("east", east);
-	
-	*/
-	buildWords("west", data);
+	buildWords("data", data);
 	//$("#east").masonry('reload');
-	$("#west").masonry('reload');
+	$("#data").masonry('reload');
 	
 }
 
 $(document).ready(function() {
-	
-	var freqtarget = "textlist";
-	var freqtime = "3"
+
+
 	
 	setInterval(function() {
 		$.ajax({
-			url: "http://localhost:3000/mapreduce/"+freqtarget+"/"+freqtime,
+			url: "http://localhost:3000/mapreduce/"+config.target+"/"+config.freq,
 			dataType: "script",
 			callback: "tdata"
 		});
 	}, 1500);
 
-	$('#west').masonry({
- 		itemSelector: '.west',
+	$('#data').masonry({
+ 		itemSelector: '.data',
  		columnWidth: 50
 	});	
-	$('#east').masonry({
- 		itemSelector: '.east',
- 		columnWidth: 50
+
+	$(":radio").change(function() {
+		config[$(this).attr("name")] = $(this).attr("value");
+		$.ajax({
+			url: "http://localhost:3000/mapreduce/"+config.target+"/"+config.freq,
+			dataType: "script",
+			callback: "tdata"
+		});
+		console.log(config);
 	});
 
 });
@@ -103,15 +81,42 @@ $(document).ready(function() {
 <body>
 
 <div id="wrapper">
-	<div id="west"><h2>Loading data...</h2><p>This should disappear very soon, unless the server isn't running</p></div>
-	<div id="east"></div>
-	<div id="about">
-		<a href="https://github.com/ivong/TwitterWords">code on github</a>
-		<a href="http://ivarvong.com">made by ivar</a>
-	</div>
-	<div id="config">
+
+
+	<div id="header">
 	
+		<div style="float: left">
+			Let's look at...<br>
+			<input type="radio" value="wordlist" name="target" id="text1" checked="yes">Statuses</input><br>
+			<input type="radio" value="hashtags" name="target" id="text2">Hashtags</input><br>
+			<input type="radio" value="urls" name="target" id="text2">URLs</input><br>
+		</div>
+		<div style="float: left">
+			For the last... (minutes)<br>
+			<input type="radio" value="1"  name="freq">1</input><br>
+			<input type="radio" value="3"  name="freq" checked="yes">3</input><br>
+			<input type="radio" value="5" name="freq">5</input><br>
+			<!--<input type="radio" value="30" name="freq">30</input><br>-->
+		</div>
+		<div style="float: left">
+			Scaling factor<br>
+			<input type="radio" value="0.5"  name="scale">0.5</input><br>
+			<input type="radio" value="1"  name="scale" checked="yes">1</input><br>
+			<input type="radio" value="5" name="scale">5</input><br>
+			<!--<input type="radio" value="30" name="freq">30</input><br>-->
+		</div>
+		<div id="about">
+			Built in Node.JS and MongoDB using the Twitter Streaming API. <br>
+			<a href="https://github.com/ivong/TwitterWords">code on github</a>
+			<a href="http://ivarvong.com">made by ivar</a>
+		</div>
+		<div style="clear: both" />
+
 	</div>
+
+	<div id="data"><h2>Loading data...</h2><p>This should disappear very soon, unless the server isn't running</p></div>
+	
+	
 </div>
 
 <script type="text/javascript">
