@@ -6,12 +6,12 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , twitter = require('./ntwitter')
+  , twitter = require('ntwitter')
   , mongoskin = require('mongoskin')
   , sanitize = require('validator').sanitize
   , credentials = require('./credentials.js');
 
-var db = mongoskin.db('localhost:27017/t1?auto_reconnect=true');
+var db = mongoskin.db('localhost:27017/t1');
 
 setInterval(function() {
 	var currentDate = new Date();
@@ -22,7 +22,7 @@ setInterval(function() {
     
     db.collection('tweets1').remove({created: {$lte: thresholdDate}});
     
-}, 1000*60);
+}, 1000*60*5);
 
 var t = new twitter({
     consumer_key: credentials.consumer_key,
@@ -197,7 +197,7 @@ app.get('/recent/:minutes?', function(req, res){
     
     db.collection('tweets1').find({created: {$gte: thresholdDate}}).toArray(function(err, results) {
         console.log(results.length, "in", minDelay);
-        res.send(results);  
+        res.json(results);  
     });;
 
 });
@@ -233,9 +233,7 @@ app.get('/mapreduce/:targetfield?/:minutes?', function(req, res) {
             
             if (typeof targetObject == 'object') {
 	            targetObject.forEach(function(tag) {
-	            	//if (ignorelist.indexOf(tag.toLowerCase()) < 0) {  //WOW! it's almost twice as fast to NOT do this check. leaving it commented out...
-	    	            emit(tag , {count: 1}); //call emit once per word/hashtag/url/whatever
-    				//}
+					emit(tag , {count: 1}); //call emit once per word/hashtag/url/whatever
     			});
 			}
         };
@@ -251,7 +249,7 @@ app.get('/mapreduce/:targetfield?/:minutes?', function(req, res) {
 
 
         db.collection('tweets1').mapReduce(mapfunc, reducefunc, {query: {created: {$gte: thresholdDate}}, 
-                                                                 scope: {MRtargetField: targetfield, ignorelist: ignorelist}, 
+                                                                 scope: {MRtargetField: targetfield}, 
                                                                    out: {replace:'tempCollection'}
                                                                 }, function(err, outputcollection) {
                                                                         outputcollection.find({"value.count": {$gt: 1}}).

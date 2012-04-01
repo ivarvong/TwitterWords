@@ -23,8 +23,7 @@ div {
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <script>
 
-	
-	var config = {target: "textlist", 
+config = {target: "textlist", 
 				freq: "3",
 				scale: "1"};
 
@@ -43,7 +42,7 @@ function buildWords(parent, wordarr) {
 function tdata(data) {
 
 	buildWords("data", data);
-	//$("#east").masonry('reload');
+
 	$("#data").masonry('reload');
 	
 }
@@ -54,11 +53,11 @@ $(document).ready(function() {
 	
 	setInterval(function() {
 		$.ajax({
-			url: "http://localhost:3000/mapreduce/"+config.target+"/"+config.freq,
+			url: "http://ivarvong.com:3000/mapreduce/"+config.target+"/"+config.freq,
 			dataType: "script",
 			callback: "tdata"
 		});
-	}, 1500);
+	}, 1000);
 
 	$('#data').masonry({
  		itemSelector: '.data',
@@ -68,7 +67,7 @@ $(document).ready(function() {
 	$(":radio").change(function() {
 		config[$(this).attr("name")] = $(this).attr("value");
 		$.ajax({
-			url: "http://localhost:3000/mapreduce/"+config.target+"/"+config.freq,
+			url: "http://www.ivarvong.com:3000/mapreduce/"+config.target+"/"+config.freq,
 			dataType: "script",
 			callback: "tdata"
 		});
@@ -87,7 +86,7 @@ $(document).ready(function() {
 	
 		<div style="float: left">
 			Let's look at...<br>
-			<input type="radio" value="wordlist" name="target" id="text1" checked="yes">Statuses</input><br>
+			<input type="radio" value="textlist" name="target" id="text1" checked="yes">Statuses</input><br>
 			<input type="radio" value="hashtags" name="target" id="text2">Hashtags</input><br>
 			<input type="radio" value="urls" name="target" id="text2">URLs</input><br>
 		</div>
@@ -106,7 +105,7 @@ $(document).ready(function() {
 			<!--<input type="radio" value="30" name="freq">30</input><br>-->
 		</div>
 		<div id="about">
-			Built in Node.JS and MongoDB using the Twitter Streaming API. <br>
+			Built in Node.JS and MongoDB (map reduce!) using the Twitter Streaming API.<br>Current pulling all geotagged tweets in the US.<br>
 			<a href="https://github.com/ivong/TwitterWords">code on github</a>
 			<a href="http://ivarvong.com">made by ivar</a>
 		</div>
