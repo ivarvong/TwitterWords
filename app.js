@@ -16,7 +16,7 @@ boolMapReduceRunnning = false;
 
 setInterval(function () {
     var currentDate = new Date();
-    var thresholdDate = new Date(currentDate - 1000 * 60 * 5); //remove anything older than 10 min ago
+    var thresholdDate = new Date(currentDate - 1000 * 60 * 3); //remove anything older than 3 min ago
     db.collection('tweets1').find().count(function (err, results) {
         console.log("pre prune:", results);
     });
@@ -27,7 +27,7 @@ setInterval(function () {
         }
     });
 
-}, 1000 * 60 * 5);
+}, 1000 * 60 * 1);
 
 var t = new twitter({
     consumer_key: credentials.consumer_key,
@@ -43,76 +43,79 @@ var westUS = '-125.112305,32.731841,-99.000000,49.325122';
 var westcoast = '-125.112305,32.731841,-116.499023,49.325122';
 var oregon = '-124.892578,42.032974,-121.135254,45.9053';
 
-t.stream('statuses/filter', {
-    'locations': allUS
-}, function (stream) {
-    stream.on('data', function (data) {
-        //console.log(data);
-        try {
-
-            var url_db = [];
-            if (data.entities.urls.length > 0) {
-                for (var i in data.entities.urls) {
-                    url_db.push(data.entities.urls[i].expanded_url);
-                }
-            }
-
-            var hashtags_db = [];
-            for (var i in data.entities.hashtags) {
-                hashtags_db.push(data.entities.hashtags[i].text);
-            }
-
-            var coordinates_db = [];
-            if (data.coordinates && data.coordinates.coordinates) {
-                coordinates_db = data.coordinates.coordinates;
-            }
-
-            var location_db = "";
-            if (data.location) {
-                location_db = data.location;
-            }
-
-            var textlist = [];
-            var text = data.text.toLowerCase();
-            text = text.replace(/[^a-z0-9\s]/g, ''); //remove anything that's not a letter
-            text = text.split(" ");
-            text.forEach(function (word) {
-                if (ignorelist.indexOf(word) < 0) {
-                    textlist.push(word);
-                }
-            });
-
-            var d = {
-                "text": data.text,
-                "textlist": textlist,
-                "placename": data.place.full_name,
-                "screenname": data.user.screen_name,
-                "userid": data.user.id_str,
-                "lang": data.user.lang,
-                "location": location_db,
-                "coordinates": coordinates_db,
-                "hashtags": hashtags_db,
-                "urls": url_db,
-                "mentions": data.entities.user_mentions,
-                "name": data.user.name,
-                "id": data.id,
-                "statuses_count": data.user.statuses_count,
-                "created": new Date()
-            };
-
-            db.collection('tweets1').save(d, function (ret) {
-
-            });
-
-        } catch (e) {
-            console.log(e);
-        }
-
-    });
-    stream.on('error', function (a, b) {
-        console.log(a, b);
-    });
-});
+setTimeout(function() {
+	console.log("starting stream...");
+	t.stream('statuses/filter', {
+		'locations': allUS
+	}, function (stream) {
+		stream.on('data', function (data) {
+			//console.log(data);
+			try {
+	
+				var url_db = [];
+				if (data.entities.urls.length > 0) {
+					for (var i in data.entities.urls) {
+						url_db.push(data.entities.urls[i].expanded_url);
+					}
+				}
+	
+				var hashtags_db = [];
+				for (var i in data.entities.hashtags) {
+					hashtags_db.push(data.entities.hashtags[i].text);
+				}
+	
+				var coordinates_db = [];
+				if (data.coordinates && data.coordinates.coordinates) {
+					coordinates_db = data.coordinates.coordinates;
+				}
+	
+				var location_db = "";
+				if (data.location) {
+					location_db = data.location;
+				}
+	
+				var textlist = [];
+				var text = data.text.toLowerCase();
+				text = text.replace(/[^a-z0-9\s]/g, ''); //remove anything that's not a letter
+				text = text.split(" ");
+				text.forEach(function (word) {
+					if (ignorelist.indexOf(word) < 0) {
+						textlist.push(word);
+					}
+				});
+	
+				var d = {
+					"text": data.text,
+					"textlist": textlist,
+					"placename": data.place.full_name,
+					"screenname": data.user.screen_name,
+					"userid": data.user.id_str,
+					"lang": data.user.lang,
+					"location": location_db,
+					"coordinates": coordinates_db,
+					"hashtags": hashtags_db,
+					"urls": url_db,
+					"mentions": data.entities.user_mentions,
+					"name": data.user.name,
+					"id": data.id,
+					"statuses_count": data.user.statuses_count,
+					"created": new Date()
+				};
+	
+				db.collection('tweets1').save(d, function (ret) {
+	
+				});
+	
+			} catch (e) {
+				console.log(e);
+			}
+	
+		});
+		stream.on('error', function (a, b) {
+			console.log(a, b);
+		});
+	});
+}, 2000);
 
 
 
@@ -160,19 +163,24 @@ function mapReduce(startDate, endDate, targetField, callback) {
             replace: 'tempCollection'
         }
     }, function (err, outputcollection) {
-        outputcollection.find({
-            "value.count": {
-                $gt: 1
-            }
-        }).
-        sort({
-            "value.count": -1
-        }).
-        limit(120).
-        toArray(function (err, results) {
-        	boolMapReduceRunnning = false; // :(
-            callback(results);
-        });
+    	try {
+			outputcollection.find({
+				"value.count": {
+					$gt: 1
+				}
+			}).
+			sort({
+				"value.count": -1
+			}).
+			limit(120).
+			toArray(function (err, results) {
+				boolMapReduceRunnning = false; // :(
+				callback(results);
+			});
+		} catch (e) {
+			console.log("ERRRRRRRROR!!!!!!!!");
+			callback([]);
+		}
     });
 }
 

@@ -8,140 +8,215 @@ DEBUG:   --exec 'node'
 DEBUG: Starting child process with 'node app.js'
 DEBUG: Watching directory '/srv/www/ivarvong.com/public_html/twitterwords/.' for changes.
 Express server listening on port 3000 in development mode
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-DEBUG: (node) warning: possible EventEmitter memory leak detected. 11 listeners added. Use emitter.setMaxListeners() to increase limit.
-Trace: 
-    at EventEmitter.<anonymous> (events.js:139:15)
-    at EventEmitter.once (events.js:160:8)
-    at [object Object].open (/usr/local/lib/node_modules/mongoskin/lib/mongoskin/collection.js:99:27)
-    at [object Object].save (/usr/local/lib/node_modules/mongoskin/lib/mongoskin/collection.js:71:10)
-    at EventEmitter.<anonymous> (/srv/www/ivarvong.com/public_html/twitterwords/app.js:159:38)
-    at EventEmitter.emit (events.js:67:17)
-    at EventEmitter.processTweet (/usr/local/lib/node_modules/ntwitter/lib/twitter.js:242:14)
-    at EventEmitter.emit (events.js:67:17)
-    at EventEmitter.receive (/usr/local/lib/node_modules/ntwitter/lib/parser.js:41:14)
-    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/ntwitter/lib/twitter.js:258:16)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+serving STALE DATAZZZZZZ
+DEBUG: TypeError: Cannot read property 'data' of undefined
+    at /srv/www/ivarvong.com/public_html/twitterwords/app.js:284:32
+    at callbacks (/srv/www/ivarvong.com/public_html/twitterwords/node_modules/express/lib/router/index.js:272:11)
+    at param (/srv/www/ivarvong.com/public_html/twitterwords/node_modules/express/lib/router/index.js:246:11)
+    at param (/srv/www/ivarvong.com/public_html/twitterwords/node_modules/express/lib/router/index.js:243:11)
+    at param (/srv/www/ivarvong.com/public_html/twitterwords/node_modules/express/lib/router/index.js:243:11)
+    at pass (/srv/www/ivarvong.com/public_html/twitterwords/node_modules/express/lib/router/index.js:253:5)
+    at Router._dispatch (/srv/www/ivarvong.com/public_html/twitterwords/node_modules/express/lib/router/index.js:280:4)
+    at Object.handle (/srv/www/ivarvong.com/public_html/twitterwords/node_modules/express/lib/router/index.js:45:10)
+    at next (/srv/www/ivarvong.com/public_html/twitterwords/node_modules/express/node_modules/connect/lib/http.js:203:15)
+    at Object.handle (/srv/www/ivarvong.com/public_html/twitterwords/node_modules/express/lib/http.js:83:5)
 
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '1' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '1' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '1' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '1' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '1' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-[TypeError: Cannot read property 'full_name' of null]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.477 seconds at Thu Apr 05 2012 01:03:20 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+starting stream...
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.42 seconds at Thu Apr 05 2012 01:03:24 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+serving STALE DATAZZZZZZ
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.315 seconds at Thu Apr 05 2012 01:03:28 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /search [ searchWord: 'polandonbelievetour' ]
+7 'for /search/' 'polandonbelievetour'
 [TypeError: Cannot read property 'full_name' of null]
 [TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot read property 'full_name' of null]
-[TypeError: Cannot
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+serving STALE DATAZZZZZZ
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.417 seconds at Thu Apr 05 2012 01:03:32 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /search [ searchWord: 'see' ]
+7 'for /search/' 'see'
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+serving STALE DATAZZZZZZ
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.367 seconds at Thu Apr 05 2012 01:03:36 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+serving STALE DATAZZZZZZ
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.415 seconds at Thu Apr 05 2012 01:03:40 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+serving STALE DATAZZZZZZ
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.434 seconds at Thu Apr 05 2012 01:03:44 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+serving STALE DATAZZZZZZ
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.309 seconds at Thu Apr 05 2012 01:03:48 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+serving STALE DATAZZZZZZ
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.38 seconds at Thu Apr 05 2012 01:03:52 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+serving STALE DATAZZZZZZ
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.35 seconds at Thu Apr 05 2012 01:03:56 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.407 seconds at Thu Apr 05 2012 01:04:00 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.435 seconds at Thu Apr 05 2012 01:04:04 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.308 seconds at Thu Apr 05 2012 01:04:08 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.415 seconds at Thu Apr 05 2012 01:04:12 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.424 seconds at Thu Apr 05 2012 01:04:16 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+pre prune: 2270
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.361 seconds at Thu Apr 05 2012 01:04:20 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.448 seconds at Thu Apr 05 2012 01:04:24 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.343 seconds at Thu Apr 05 2012 01:04:28 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.417 seconds at Thu Apr 05 2012 01:04:32 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+{"targetField":"textlist","minutes":"3"}  ==> mapreduce in 0.341 seconds at Thu Apr 05 2012 01:04:36 GMT-0700 (PDT)
+GET /mapreduce [ targetField: 'textlist', minutes: '3' ]
+!!! cache hit!
