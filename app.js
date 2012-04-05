@@ -211,36 +211,61 @@ app.get('/recent/:minutes?', function (req, res) {
 
 });
 
-function buildMapReduce() {
+function doMapReduce(paramsStr, callback) {
+	var params = JSON.parse(paramsStr);
+	
+	//console.log("paramsKey by dMR:", paramsStr);
+	//console.log("params received by doMapReduce: ",params);
 	var startTime = new Date();
 
     var targetField = "hashtags";
-    if (req.params.targetfield != undefined) {
-        targetField = sanitize(req.params['targetfield'].split(" ")[0]).xss(); //overkill?
+    if (params.targetfield != undefined) {
+        targetField = sanitize(params['targetField'].split(" ")[0]).xss(); //overkill?
     }
 
     var minDelay = 10;
-    if (req.params.minutes != undefined) {
-        minDelay = parseInt(req.params.minutes);
+    if (params.minutes != undefined) {
+        minDelay = parseInt(params.minutes);
     }
     var currentDate = new Date();
     var thresholdDate = new Date(currentDate - 1000 * 60 * minDelay);
 
-    mapReduce(thresholdDate, new Date(), targetField, function (results) {
+    mapReduce(thresholdDate, new Date(), targetField, function(results) {
         var arrayResults = [];
         results.forEach(function (pair) {
             arrayResults.push([pair['_id'], pair.value.count]);
         });
-        res.send("tdata(" + JSON.stringify(arrayResults) + ")");
+        cache[paramsStr] = {};
+        cache[paramsStr].data = "tdata("+JSON.stringify(arrayResults)+")";
+        cache[paramsStr].created = Date.now();
         var elapsedTime = (new Date() - startTime) / 1000;
-        console.log("mapreduce in " + elapsedTime + " seconds");
+        console.log("mapreduce in " + elapsedTime + " seconds at "+new Date());
+        console.log("cache: ", cache);
+        
+        callback(cache[paramsStr].data);
     });
 
 }
 
-app.get('/mapreduce/:targetfield?/:minutes?', function (req, res) {
+app.get('/mapreduce/:targetField/:minutes', function (req, res) {
+	console.log(" -- ");
     console.log("GET /mapreduce", req.params);
-    res.send(cache[req.params]);
+    var params = {"targetField": req.params.targetField, "minutes": req.params.minutes};
+    var paramsStr = JSON.stringify(params);
+	//console.log("GET paramsStr:", paramsStr);
+    if (typeof cache[paramsStr] == 'object' && Date.now() - cache[paramsStr].created < 6000) { //expire after 1000 ms
+    	console.log("cache hit!");
+    	res.send(cache[paramsStr].data);
+    } else {
+    	try {
+	    	console.log(cache[paramsStr], cache[paramsStr].created, Date.now(), Date.now()-cache[paramsStr].created);
+    	} catch(e) { }
+		//console.log("cache miss... building...");
+    	doMapReduce(paramsStr, function(data) {
+
+    		res.send(data);
+    	});
+    }
 });
 
 app.get('/search/:searchWord?', function (req, res) {
