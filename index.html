@@ -19,6 +19,7 @@ div {
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="./jquery.masonry.min.js"></script>
+<script src="./jquery.hovercard.min.js"></script>
 <script type="text/javascript" src="http://use.typekit.com/gyg7lht.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <script>
@@ -49,7 +50,35 @@ function tdata(data) {
 
 $(document).ready(function() {
 
+  $("#demo-ajax").hovercard({
+        detailsHTML: "",
+        width: 350,
+        cardImgSrc: 'http://ejohn.org/files/short.sm.jpg',
+        onHoverIn: function () {
+            // set your twitter id
+            var user = 'jeresig';
 
+            $.ajax({
+                url: 'http://twitter.com/statuses/user_timeline.json?screen_name=' + user + '&count=5&callback=?',
+                type: 'GET',
+                dataType: 'json',
+                beforeSend: function () {
+                    $("#demo-cb-tweets").prepend('<p class="loading-text">Loading latest tweets...</p>');
+                },
+                success: function (data) {
+                    $("#demo-cb-tweets").empty();
+                    $('#twitter-username').text(user);
+                    $.each(data, function (index, value) {
+                        $("#demo-cb-tweets").append('<li>' + value.text + '</li>');
+                    });
+                },
+                complete: function () {
+                    $('.loading-text').remove();
+                }
+            });
+
+        }
+    });
 	
 	setInterval(function() {
 		$.ajax({
@@ -57,7 +86,7 @@ $(document).ready(function() {
 			dataType: "script",
 			callback: "tdata"
 		});
-	}, 1000);
+	}, 2000);
 
 	$('#data').masonry({
  		itemSelector: '.data',
@@ -66,11 +95,6 @@ $(document).ready(function() {
 
 	$(":radio").change(function() {
 		config[$(this).attr("name")] = $(this).attr("value");
-		$.ajax({
-			url: "http://www.ivarvong.com:3000/mapreduce/"+config.target+"/"+config.freq,
-			dataType: "script",
-			callback: "tdata"
-		});
 		console.log(config);
 	});
 

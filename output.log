@@ -1,382 +1,147 @@
 
 DEBUG: Running node-supervisor with
-DEBUG:   program 'twitter.js'
+DEBUG:   program 'app.js'
 DEBUG:   --watch '.'
 DEBUG:   --extensions 'node|js'
 DEBUG:   --exec 'node'
 
-DEBUG: Starting child process with 'node twitter.js'
+DEBUG: Starting child process with 'node app.js'
 DEBUG: Watching directory '/srv/www/ivarvong.com/public_html/twitterwords/.' for changes.
-Server running at :9000/
-Fri Mar 30 2012 17:54:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 17:59:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 18:04:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 18:09:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 18:14:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 18:19:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 18:24:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 18:29:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 18:34:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 18:39:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 18:44:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 18:49:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 18:54:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 18:59:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 19:04:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 19:09:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 19:14:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 19:19:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 19:24:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 19:29:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 19:34:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 19:39:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 19:44:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 19:49:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 19:54:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 19:59:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 20:04:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 20:09:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 20:14:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 20:19:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 20:24:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 20:29:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 20:34:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 20:39:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 20:44:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 20:49:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 20:54:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 20:59:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 21:04:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 21:09:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 21:14:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 21:19:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 21:24:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 21:29:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 21:34:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 21:39:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 21:44:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 21:49:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 21:54:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 21:59:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 22:04:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 22:09:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 22:14:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 22:19:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 22:24:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 22:29:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 22:34:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 22:39:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 22:44:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 22:49:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 22:54:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 22:59:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 23:04:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 23:09:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 23:14:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 23:19:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 23:24:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 23:29:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 23:34:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 23:39:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 23:44:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 23:49:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 23:54:34 GMT-0700 (PDT)RESET!
-Fri Mar 30 2012 23:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 00:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 00:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 00:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 00:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 00:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 00:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 00:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 00:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 00:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 00:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 00:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 00:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 01:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 01:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 01:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 01:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 01:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 01:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 01:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 01:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 01:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 01:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 01:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 01:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 02:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 02:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 02:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 02:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 02:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 02:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 02:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 02:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 02:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 02:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 02:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 02:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 03:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 03:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 03:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 03:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 03:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 03:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 03:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 03:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 03:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 03:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 03:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 03:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 04:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 04:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 04:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 04:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 04:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 04:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 04:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 04:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 04:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 04:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 04:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 04:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 05:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 05:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 05:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 05:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 05:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 05:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 05:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 05:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 05:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 05:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 05:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 05:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 06:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 06:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 06:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 06:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 06:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 06:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 06:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 06:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 06:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 06:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 06:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 06:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 07:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 07:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 07:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 07:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 07:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 07:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 07:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 07:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 07:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 07:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 07:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 07:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 08:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 08:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 08:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 08:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 08:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 08:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 08:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 08:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 08:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 08:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 08:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 08:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 09:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 09:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 09:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 09:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 09:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 09:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 09:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 09:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 09:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 09:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 09:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 09:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 10:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 10:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 10:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 10:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 10:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 10:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 10:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 10:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 10:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 10:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 10:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 10:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 11:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 11:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 11:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 11:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 11:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 11:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 11:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 11:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 11:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 11:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 11:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 11:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 12:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 12:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 12:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 12:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 12:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 12:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 12:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 12:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 12:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 12:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 12:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 12:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 13:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 13:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 13:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 13:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 13:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 13:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 13:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 13:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 13:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 13:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 13:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 13:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 14:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 14:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 14:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 14:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 14:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 14:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 14:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 14:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 14:44:34 GMT-0700 (PDT)RESET!
-end!
-destroy!
-Sat Mar 31 2012 14:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 14:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 14:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 15:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 15:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 15:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 15:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 15:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 15:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 15:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 15:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 15:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 15:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 15:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 15:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 16:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 16:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 16:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 16:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 16:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 16:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 16:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 16:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 16:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 16:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 16:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 16:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 17:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 17:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 17:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 17:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 17:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 17:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 17:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 17:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 17:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 17:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 17:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 17:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 18:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 18:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 18:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 18:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 18:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 18:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 18:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 18:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 18:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 18:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 18:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 18:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 19:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 19:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 19:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 19:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 19:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 19:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 19:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 19:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 19:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 19:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 19:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 19:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 20:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 20:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 20:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 20:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 20:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 20:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 20:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 20:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 20:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 20:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 20:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 20:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 21:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 21:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 21:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 21:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 21:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 21:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 21:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 21:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 21:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 21:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 21:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 21:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 22:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 22:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 22:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 22:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 22:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 22:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 22:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 22:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 22:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 22:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 22:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 22:59:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 23:04:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 23:09:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 23:14:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 23:19:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 23:24:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 23:29:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 23:34:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 23:39:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 23:44:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 23:49:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 23:54:34 GMT-0700 (PDT)RESET!
-Sat Mar 31 2012 23:59:34 GMT-0700 (PDT)RESET!
-Sun Apr 01 2012 00:04:34 GMT-0700 (PDT)RESET!
-Sun Apr 01 2012 00:09:34 GMT-0700 (PDT)RESET!
-Sun Apr 01 2012 00:14:34 GMT-0700 (PDT)RESET!
-Sun Apr 01 2012 00:19:34 GMT-0700 (PDT)RESET!
-Sun Apr 01 2012 00:24:34 GMT-0700 (PDT)RESET!
-DEBUG: crashing child
-DEBUG: Starting child process with 'node twitter.js'
-Server running at :9000/
+Express server listening on port 3000 in development mode
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+DEBUG: (node) warning: possible EventEmitter memory leak detected. 11 listeners added. Use emitter.setMaxListeners() to increase limit.
+Trace: 
+    at EventEmitter.<anonymous> (events.js:139:15)
+    at EventEmitter.once (events.js:160:8)
+    at [object Object].open (/usr/local/lib/node_modules/mongoskin/lib/mongoskin/collection.js:99:27)
+    at [object Object].save (/usr/local/lib/node_modules/mongoskin/lib/mongoskin/collection.js:71:10)
+    at EventEmitter.<anonymous> (/srv/www/ivarvong.com/public_html/twitterwords/app.js:159:38)
+    at EventEmitter.emit (events.js:67:17)
+    at EventEmitter.processTweet (/usr/local/lib/node_modules/ntwitter/lib/twitter.js:242:14)
+    at EventEmitter.emit (events.js:67:17)
+    at EventEmitter.receive (/usr/local/lib/node_modules/ntwitter/lib/parser.js:41:14)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/ntwitter/lib/twitter.js:258:16)
+
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '1' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '1' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '1' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '1' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '1' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+[TypeError: Cannot read property 'full_name' of null]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+GET /mapreduce [ targetfield: 'textlist', minutes: '3' ]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot read property 'full_name' of null]
+[TypeError: Cannot
