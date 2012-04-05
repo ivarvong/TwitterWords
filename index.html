@@ -15,6 +15,21 @@ div {
 #header {
 	text-align: center;
 }
+#data {
+	width: 65%;
+	float: left;
+}
+#tweetsearch {
+	width: 30%;
+	float: left;
+}
+li {
+	border: 1px solid #CCC;
+	margin: 2px;
+	padding: 2px;
+	list-style-type: none;
+	border-radius: 6px;
+}
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="./jquery.masonry.min.js"></script>
@@ -43,6 +58,15 @@ function buildWords(parent, wordarr) {
 function tdata(data) {
     buildWords("data", data);
     $("#data").masonry('reload');
+}
+
+function searchData(data) {
+	var blah = "<ul>";
+	data.forEach(function (line) {
+		blah += "<li>"+line[1]+"</li>";
+	});
+	blah += "</ul>"
+	$("#tweetsearch").html(blah);
 }
 
 $(document).ready(function () {
@@ -77,13 +101,16 @@ $(document).ready(function () {
         }
     });
     */
+
     $(".data").live({
-		mouseover: function() {
-			alert($(this).html());
+		click: function() {
+			$("#tweetsearch").html("<h3>Loading tweets...</h3>");
+			$.ajax({
+                url: 'http://ivarvong.com:3000/search/' + $(this).html(),
+                dataType: 'script',
+                callback: "searchData"
+			});            
 		},
-		mouseout: function() {
-			//$(this).removeClass("over");
-		}
 	});
 
     setInterval(function () {
@@ -92,7 +119,7 @@ $(document).ready(function () {
             dataType: "script",
             callback: "tdata"
         });
-    }, 3000);
+    }, 1000);
 
     $('#data').masonry({
         itemSelector: '.data',
@@ -144,8 +171,8 @@ $(document).ready(function () {
 	</div>
 
 	<div id="data"><h2>Loading data...</h2><p>This should disappear very soon, unless the server isn't running</p></div>
-	
-	
+	<div id="tweetsearch"><h2>Click on a word to see tweets that use it.</h2></div>
+	<div style="clear: both"></div>
 </div>
 
 <script type="text/javascript">

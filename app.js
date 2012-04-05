@@ -12,10 +12,11 @@ var express = require('express'),
 var db = mongoskin.db('localhost:27017/t1');
 
 cache = {};
+boolMapReduceRunnning = false;
 
 setInterval(function () {
     var currentDate = new Date();
-    var thresholdDate = new Date(currentDate - 1000 * 60 * 10); //remove anything older than 10 min ago
+    var thresholdDate = new Date(currentDate - 1000 * 60 * 5); //remove anything older than 10 min ago
     db.collection('tweets1').find().count(function (err, results) {
         console.log("pre prune:", results);
     });
@@ -116,6 +117,8 @@ t.stream('statuses/filter', {
 
 
 function mapReduce(startDate, endDate, targetField, callback) {
+	boolMapReduceRunnning = true; //hack a saurus :(
+	
     var mapfunc = function () {
 
             if (MRtargetField == "text") {
@@ -167,6 +170,7 @@ function mapReduce(startDate, endDate, targetField, callback) {
         }).
         limit(120).
         toArray(function (err, results) {
+        	boolMapReduceRunnning = false; // :(
             callback(results);
         });
     });
@@ -219,7 +223,7 @@ function doMapReduce(paramsStr, callback) {
 	var startTime = new Date();
 
     var targetField = "hashtags";
-    if (params.targetfield != undefined) {
+    if (params.targetField != undefined) {
         targetField = sanitize(params['targetField'].split(" ")[0]).xss(); //overkill?
     }
 
@@ -239,8 +243,8 @@ function doMapReduce(paramsStr, callback) {
         cache[paramsStr].data = "tdata("+JSON.stringify(arrayResults)+")";
         cache[paramsStr].created = Date.now();
         var elapsedTime = (new Date() - startTime) / 1000;
-        console.log("mapreduce in " + elapsedTime + " seconds at "+new Date());
-        console.log("cache: ", cache);
+        console.log(paramsStr, " ==> mapreduce in " + elapsedTime + " seconds at "+new Date());
+        //console.log("cache: ", cache);
         
         callback(cache[paramsStr].data);
     });
@@ -248,27 +252,34 @@ function doMapReduce(paramsStr, callback) {
 }
 
 app.get('/mapreduce/:targetField/:minutes', function (req, res) {
-	console.log(" -- ");
     console.log("GET /mapreduce", req.params);
     var params = {"targetField": req.params.targetField, "minutes": req.params.minutes};
+    if (parseInt(params.minutes) > 4) {
+    	params.minutes = "4"; //HACK
+    }
     var paramsStr = JSON.stringify(params);
 	//console.log("GET paramsStr:", paramsStr);
-    if (typeof cache[paramsStr] == 'object' && Date.now() - cache[paramsStr].created < 6000) { //expire after 1000 ms
-    	console.log("cache hit!");
+    if (typeof cache[paramsStr] == 'object' && Date.now() - cache[paramsStr].created < 3000) { 
+    	console.log("!!! cache hit!");
     	res.send(cache[paramsStr].data);
     } else {
     	try {
-	    	console.log(cache[paramsStr], cache[paramsStr].created, Date.now(), Date.now()-cache[paramsStr].created);
+	    	//console.log(cache[paramsStr], cache[paramsStr].created, Date.now(), Date.now()-cache[paramsStr].created);
     	} catch(e) { }
 		//console.log("cache miss... building...");
-    	doMapReduce(paramsStr, function(data) {
-
-    		res.send(data);
-    	});
+		if (boolMapReduceRunnning == false) {
+	    	doMapReduce(paramsStr, function(data) {
+    			res.send(data);
+	    	});
+    	} else {
+    		console.log("serving STALE DATAZZZZZZ");
+    		res.send(cache[paramsStr].data); // send stale data if it's already processing
+    	}
     }
 });
 
 app.get('/search/:searchWord?', function (req, res) {
+	var searchStart = new Date();
     console.log("GET /search", req.params);
     db.collection('tweets1').find({
         textlist: req.params.searchWord
@@ -284,7 +295,8 @@ app.get('/search/:searchWord?', function (req, res) {
         results.forEach(function (data) {
             arrayResults.push([data['screenname'], data['text'], data['created']]);
         });
-        res.send("tdata(" + JSON.stringify(arrayResults) + ")");
+        res.send("searchData(" + JSON.stringify(arrayResults) + ")");
+        console.log(new Date() - searchStart, "for /search/",req.params.searchWord);
     });
 });
 
